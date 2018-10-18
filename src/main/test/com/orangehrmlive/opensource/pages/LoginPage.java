@@ -1,7 +1,13 @@
 package com.orangehrmlive.opensource.pages;
 
-import org.fluentlenium.core.FluentPage;
 
-public class LoginPage extends BasePage{
+public class LoginPage extends BasePage {
 
+
+    public void login() {
+    }
+
+    public boolean isLoginPageDisplayed() {
+        return true;
+    }
 }
