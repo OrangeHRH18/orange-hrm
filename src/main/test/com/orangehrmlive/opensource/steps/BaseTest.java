@@ -7,6 +7,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
+import java.io.File;
+
 public class BaseTest extends FluentTest {
 
     @Before("UISetup")
@@ -16,7 +18,10 @@ public class BaseTest extends FluentTest {
 
     @Override
     public WebDriver newWebDriver() {
-        System.setProperty("webdriver.chrome.driver", "C:/chromeDriver/chromedriver.exe"); // Set for ChromeDriver
+        String sp = File.separator;
+        String driverPath = System.getProperty("user.dir") + sp + "src" + sp + "main" + sp + "resources" + sp + "drivers" + sp;
+
+        System.setProperty("webdriver.chrome.driver", driverPath + "chromedriver.exe"); // Set for ChromeDriver
         WebDriver driver = new ChromeDriver();
         return driver;
     }
