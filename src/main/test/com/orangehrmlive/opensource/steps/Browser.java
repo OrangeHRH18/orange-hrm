@@ -1,5 +1,6 @@
 package com.orangehrmlive.opensource.steps;
 
+import com.orangehrmlive.opensource.utils.World;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import org.fluentlenium.adapter.junit.FluentTest;
@@ -13,38 +14,24 @@ import java.io.InputStream;
 import java.util.Properties;
 
 public class Browser extends FluentTest {
-    private String sp = File.separator;
-    private String propertyPath = System.getProperty("user.dir") + sp + "src" + sp + "main" + sp + "resources" + sp + "properties" + sp;
 
     @Given("^browser is open")
-    public void opeBrower(){
+    public void opeBrower() {
         before();
     }
+
     @Given("^browser is close")
-    public void closeBrowser(){
+    public void closeBrowser() {
         after();
     }
 
     public void before() {
-        Properties prop = new Properties();
-        System.out.println(propertyPath);
-        InputStream input;
-        try {
-            input = new FileInputStream(propertyPath + "ui.properties");
-            prop.load(input);
-            newWebDriver().get(prop.getProperty("orange.url"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
     }
 
     @Override
     public WebDriver newWebDriver() {
-
-        String driverPath = System.getProperty("user.dir") + sp + "src" + sp + "main" + sp + "resources" + sp + "drivers" + sp;
-        System.setProperty("webdriver.chrome.driver", driverPath + "chromedriver.exe");
-        WebDriver driver = new ChromeDriver();
-        return driver;
+        return World.getInstance().getDriver();
     }
 
     public String getBrowser() {
@@ -60,7 +47,7 @@ public class Browser extends FluentTest {
     }
 
 
-    public void after(){
+    public void after() {
         getDriver().close();
     }
 }
