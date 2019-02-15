@@ -13,17 +13,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import java.io.File;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features = "src/main/resources/features", tags = {"~@wip"}, format = {"pretty", "html:target/cucumber"})
+@CucumberOptions(features = "src/main/resources/features", glue = "com.orangehrmlive.opensource.steps", tags = {"@OR_01"}, format = {"pretty", "html:target/cucumber"})
 public class RunCukes {
 
-    @BeforeClass
-    public static void before() {
-        World.getInstance();
-
-    }
-
-    @AfterClass
-    public static void after() {
-        //World.getInstance().getDriver().close();
-    }
 }

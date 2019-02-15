@@ -5,7 +5,7 @@ import cucumber.api.java.en.Then;
 import org.fluentlenium.adapter.junit.FluentTest;
 import org.fluentlenium.core.annotation.Page;
 
-public class DashboardStepDef extends FluentTest {
+public class DashboardStepDef extends FluentTest{
     @Page
     private DashboardPage dashboardPage;
 

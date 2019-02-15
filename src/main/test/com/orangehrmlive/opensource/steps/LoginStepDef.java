@@ -5,7 +5,6 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import org.fluentlenium.adapter.junit.FluentTest;
 import org.fluentlenium.core.annotation.Page;
-import org.openqa.selenium.WebDriver;
 
 public class LoginStepDef extends FluentTest {
 
@@ -15,8 +14,7 @@ public class LoginStepDef extends FluentTest {
 
     @Given("^Orange HRM login page is displayed$")
     public void diplayLoginPage() {
-        setWebDriver("chrome");
-        loginPage.goTo("https://opensource-demo.orangehrmlive.com/");
+        goTo("https://opensource-demo.orangehrmlive.com/");
         loginPage.isLoginPageDisplayed();
     }
 
@@ -25,8 +23,6 @@ public class LoginStepDef extends FluentTest {
         loginPage.login("Admin", "admin123");
     }
 
-    @Override
-    public WebDriver newWebDriver() {
-        return super.newWebDriver();
-    }
+
+
 }
